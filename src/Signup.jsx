@@ -39,7 +39,7 @@ function Signup () {
                     if (!response.success) {
                         setErrors(response.error[0].msg)
                     } else {
-                        navigate('/')   
+                        navigate('/login')   
                     }
                 } catch (error) {
                     console.error(error);                    
