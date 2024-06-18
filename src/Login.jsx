@@ -8,7 +8,7 @@ function Login () {
     return <>
         <Form>
             <label htmlFor="username">Username</label>
-            <input name="password" type="text" value={user} onChange={(e) => {setUser(e.target.value)}} required/>
+            <input name="username" type="text" value={user} onChange={(e) => {setUser(e.target.value)}} required/>
             <label htmlFor="password">Password</label>
             <input name="password" type="text" value={pass} onChange={(e) => {setPass(e.target.value)}} required/>
             <button onClick={async (click) =>{
@@ -27,6 +27,7 @@ function Login () {
                     setError(response.error[0].msg)
                 } else {
                     localStorage.setItem('token', response.token)
+                    localStorage.setItem('id', response.id)
                     navigate('/')
                 }
                 } catch (err) {
