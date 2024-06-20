@@ -1,11 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import {createBrowserRouter, RouterProvider } from 'react-router-dom'
-import App from './App.jsx'
-import Login from './Login.jsx'
-import Signup from './Signup.jsx'
-import './index.css'
-import UpdateUser from './updateUser.jsx'
+import App from './component/App.jsx'
+import Login from './component/Login.jsx'
+import Signup from './component/Signup.jsx'
+import UpdateUser from './component/updateUser.jsx'
+import DisplaySinglePost from './component/DisplaySinglePost.jsx'
+import './stylesheet/index.css'
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: '/updateuser',
     element: <UpdateUser />
+  },
+  {
+    path: '/post/:postId',
+    element: <DisplaySinglePost />
   }
 ])
 

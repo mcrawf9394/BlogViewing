@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate, Form } from "react-router-dom"
+import Info from './info.js'
 function UpdateUser () {
     const navigate = useNavigate()
     const [pass, setPass] = useState('')
@@ -13,7 +14,7 @@ function UpdateUser () {
             <button onClick={async (click) => {
                 click.preventDefault()
                 try {
-                    const api = await fetch(`http://localhost:3000/api/users/${localStorage.getItem('id')}`, {
+                    const api = await fetch(`${Info}/users/${localStorage.getItem('id')}`, {
                         method: "PUT",
                         mode: 'cors',
                         headers: {'Content-Type' :'application/json', 'Authorization': `Bearer ${localStorage.getItem('token')}`},

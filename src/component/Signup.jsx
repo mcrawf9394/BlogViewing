@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Form, useNavigate} from "react-router-dom"
+import Info from './info.js' 
 function Signup () {
     let [init, setInt] = useState("")
     let [last, setLast] = useState('')
@@ -24,7 +25,7 @@ function Signup () {
                 let username = user
                 let password = pass
                 try {
-                    const api = await fetch('http://localhost:3000/api/users', {
+                    const api = await fetch(Info + '/users', {
                         method: 'POST',
                         mode: 'cors',
                         headers: {"Content-Type": "application/json"},
