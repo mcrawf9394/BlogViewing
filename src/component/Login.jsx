@@ -29,6 +29,7 @@ function Login () {
                 } else {
                     localStorage.setItem('token', response.token)
                     localStorage.setItem('id', response.id)
+                    localStorage.setItem('name', response.name)
                     navigate('/')
                 }
                 } catch (err) {

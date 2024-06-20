@@ -45,7 +45,7 @@ function DisplaySinglePost () {
                         mode: 'cors',
                         headers: {'Content-Type': "application/json", "Authorization": `Bearer ${localStorage.getItem('token')}`},
                         body: JSON.stringify({
-                            "user": localStorage.getItem('id'),
+                            "user": localStorage.getItem('name'),
                             "post": params.postId,
                             "commentContent": commentContent,
                             "date": new Date()
@@ -53,7 +53,7 @@ function DisplaySinglePost () {
                     })
                     const response = await request.json()
                     if (response.error) {
-
+                        console.log(response.error)
                     } else {
                         
                     }
@@ -62,6 +62,7 @@ function DisplaySinglePost () {
                 }
             }}>Add Comment</button>
         </Form>
+
         {comments.map(comment => {
             if (comment === '') {
                 return <>
