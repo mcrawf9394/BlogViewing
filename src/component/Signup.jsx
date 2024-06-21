@@ -9,16 +9,16 @@ function Signup () {
     let [errors, setErrors] = useState('')
     let navigate = useNavigate()
     return <>
-        <Form>
-            <label htmlFor="firstName">First Name</label>
-            <input name="firstName" type="text" value={init} onChange={(e) => {setInt(e.target.value)}} required/>
-            <label htmlFor="lastName">Last Name</label>
-            <input name="lastName" type="text"  value={last} onChange={(e) => {setLast(e.target.value)}} required/>
-            <label htmlFor="username">Username</label>
-            <input name="username" type="text"  value={user} onChange={(e) => {setUser(e.target.value)}} required/>
-            <label htmlFor="password">Password</label>
-            <input name="password" type="text"  value={pass} onChange={(e) => {setPass(e.target.value)}} required/>
-            <button onClick={async (event) => {
+        <Form className="h-screen w-8/12 mx-auto my-auto grid grid-rows-10 rounded-3xl bg-gray-600">
+            <label className="self-end text-white ml-8 text-2xl" htmlFor="firstName">First Name</label>
+            <input className="h-10 bg-gray-400 ml-8 w-11/12 border-black border-4" name="firstName" type="text" value={init} onChange={(e) => {setInt(e.target.value)}} required/>
+            <label className="self-end text-white ml-8 text-2xl" htmlFor="lastName">Last Name</label>
+            <input className="h-10 bg-gray-400 ml-8 w-11/12 border-black border-4" name="lastName" type="text"  value={last} onChange={(e) => {setLast(e.target.value)}} required/>
+            <label className="self-end text-white ml-8 text-2xl" htmlFor="username">Username</label>
+            <input className="h-10 bg-gray-400 ml-8 w-11/12 border-black border-4" name="username" type="text"  value={user} onChange={(e) => {setUser(e.target.value)}} required/>
+            <label className="self-end text-white ml-8 text-2xl" htmlFor="password">Password</label>
+            <input className="h-10 bg-gray-400 ml-8 w-11/12 border-black border-4" name="password" type="text"  value={pass} onChange={(e) => {setPass(e.target.value)}} required/>
+            <button className="row-span-2 bg-gray-400 border-black border-4 rounded-2xl w-40 h-20 justify-self-center transition ease-in-out hover:scale-110" onClick={async (event) => {
                 event.preventDefault()
                 let firstName = init
                 let lastName = last

@@ -7,10 +7,10 @@ function Post (post) {
             <h1>Loading</h1>
         </>
     } else {
-        return <>
-            <h1>{post.post.title}</h1>
-            <p>{post.post.postContent}</p>
-        </>
+        return <div className="min-h-96 w-10/12 bg-gray-600 rounded-3xl mx-auto my-4">
+            <h1 className="text-white text-2xl text-center mt-4">{post.post.title}</h1>
+            <p className="text-white text-lg mx-4 indent-4">{post.post.postContent}</p>
+        </div>
     } 
 }
 function DisplaySinglePost () {
@@ -35,9 +35,9 @@ function DisplaySinglePost () {
         <Post 
             post={post}
         />
-        <Form>
-            <input className="border-black border-solid border-2" id="commentContent" type="text" value={commentContent} onChange={e => {setCommentContent(e.target.value)}} required/>
-            <button onClick={async (click) => {
+        <Form className="w-10/12 mx-auto my-4">
+            <input className="bg-gray-600 border-black border-solid border-4 w-8/12 mr-4" id="commentContent" type="text" value={commentContent} onChange={e => {setCommentContent(e.target.value)}} required/>
+            <button className="bg-gray-600 border-black border-solid border-4 rounded-xl w-2/12 hover:scale-110" onClick={async (click) => {
                 click.preventDefault()
                 try {
                     const request = await fetch(Info + '/comments', {
@@ -55,7 +55,7 @@ function DisplaySinglePost () {
                     if (response.error) {
                         console.log(response.error)
                     } else {
-                        
+
                     }
                 } catch (err) {
                     console.log(err)
@@ -68,10 +68,15 @@ function DisplaySinglePost () {
                 return <>
                     <h1>Loading</h1>
                 </>
+            } else if (comment.user === localStorage.getItem('name')) {
+                return <div className="inline-flex">
+                     <p className="text-white mx-32 text-center">{comment.user} - {comment.commentContent}</p>
+                     <button className="text-white">Delete</button>
+                </div>
             } else {
-                return <> 
-                    <p>{comment.user} - {comment.commentContent}</p>
-                </>
+                return <div className=""> 
+                    <p className="mx-32 text-white text-center">{comment.user} - {comment.commentContent}</p>
+                </div>
             }
         })}
         <a href="/">

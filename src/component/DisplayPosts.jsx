@@ -12,24 +12,23 @@ function DisplayPosts () {
         }
         getInfo()
     }, [])
-    return <>
+    return <div className='col-span-6 bg-gray-950'>
         {content.map(post => {
             if (post === '') {
                 return <>
-                    <h1>Loading</h1>
+                    <h1 className="text-white">Loading</h1>
                  </>
             } else {
                 return <> 
                     <button onClick={click => {
                         click.preventDefault()
                         navigate(`/post/${post._id}`)
-                    }}>
-                        <h2>{post.title}</h2>
-                        <p>{post.postContent}</p>
+                    }} className="bg-gray-400 hover:bg-gray-200 w-10/12 h-2/6 mt-4 mx-20">
+                        <h2 className="font-sans text-4xl">{post.title}</h2>
                     </button>
                 </>
             }
         })}
-    </>
+    </div>
 }
 export default DisplayPosts
