@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { useParams, Form } from "react-router-dom"
+import { useParams, Form, useNavigate } from "react-router-dom"
 import Info from './info.js'
 function Post (post) {
     if (post === '') {
@@ -18,6 +18,7 @@ function DisplaySinglePost () {
     const [post, setPost] = useState('')
     const [comments, setComments] = useState([''])
     const [commentContent, setCommentContent] = useState('')
+    const navigate = useNavigate()
     useEffect(() => {
         const getInfo = async () => {
             try {
@@ -68,20 +69,16 @@ function DisplaySinglePost () {
                 return <>
                     <h1>Loading</h1>
                 </>
-            } else if (comment.user === localStorage.getItem('name')) {
-                return <div className="inline-flex">
-                     <p className="text-white mx-32 text-center">{comment.user} - {comment.commentContent}</p>
-                     <button className="text-white">Delete</button>
-                </div>
             } else {
-                return <div className=""> 
-                    <p className="mx-32 text-white text-center">{comment.user} - {comment.commentContent}</p>
+                return <div className="w-full"> 
+                    <p className="mx-32 text-white">{comment.user} - {comment.commentContent}</p>
                 </div>
             }
         })}
-        <a href="/">
-            <button>Go Back</button>
-        </a>
+        <button className="ml-32 bg-gray-600 border-black border-solid border-4 rounded-xl w-2/12 hover:scale-110" onClick={(click) => {
+            click.preventDefault()
+            navigate('/')
+        }}>Go Back</button>
     </>
 }
 export default DisplaySinglePost
