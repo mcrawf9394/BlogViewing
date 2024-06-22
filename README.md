@@ -1,8 +1,14 @@
-# React + Vite
+# Blog Viewing
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is one portion of the Blog project that I have made using the MERN stack.
 
-Currently, two official plugins are available:
+This portion is for users to view the posts created by me and then sign in and be able to create comments on each of the posts.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This portion uses React and TailwindCss for the styling of the page.
+
+Check out the other repositories here:
+
+Api
+https://github.com/mcrawf9394/BlogApi
+Editing 
+https://github.com/mcrawf9394/BlogEdit

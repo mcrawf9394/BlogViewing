@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react"
 import { useParams, Form, useNavigate } from "react-router-dom"
 import Info from './info.js'
+import {v4 as uuidV4} from 'uuid'
 function Post (post) {
     if (post === '') {
         return <>
             <h1>Loading</h1>
         </>
     } else {
-        return <div className="min-h-96 w-10/12 bg-gray-600 rounded-3xl mx-auto my-4">
-            <h1 className="text-white text-2xl text-center mt-4">{post.post.title}</h1>
-            <p className="text-white text-lg mx-4 indent-4">{post.post.postContent}</p>
+        return <div key={uuidV4()} className="min-h-96 w-10/12 bg-gray-600 rounded-3xl mx-auto my-4">
+            <h1 key={uuidV4()} className="text-white text-2xl text-center mt-4">{post.post.title}</h1>
+            <p key={uuidV4()} className="text-white text-lg mx-4 indent-4">{post.post.postContent}</p>
         </div>
     } 
 }
@@ -70,8 +71,8 @@ function DisplaySinglePost () {
                     <h1>Loading</h1>
                 </>
             } else {
-                return <div className="w-full"> 
-                    <p className="mx-32 text-white">{comment.user} - {comment.commentContent}</p>
+                return <div key={uuidV4()} className="w-full"> 
+                    <p key={uuidV4()} className="mx-32 text-white">{comment.user} - {comment.commentContent}</p>
                 </div>
             }
         })}

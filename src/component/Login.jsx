@@ -7,7 +7,7 @@ function Login () {
     const [error, setError] = useState('')
     const navigate = useNavigate()
     return <>
-        <Form className="h-screen w-8/12 mx-auto my-auto grid grid-rows-7 rounded-3xl bg-gray-600">
+        <Form className="h-screen w-8/12 mx-auto my-auto grid grid-rows-7 rounded-3xl bg-gray-600" >
             <label htmlFor="username" className="self-end text-white ml-8 text-2xl">Username</label>
             <input className="h-10 row-span-2 bg-gray-400 ml-8 w-11/12 border-black border-4" name="username" type="text" value={user} onChange={(e) => {setUser(e.target.value)}} required/>
             <label htmlFor="password" className="self-end text-white ml-8 text-2xl">Password</label>

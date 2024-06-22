@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import Info from './info.js'
+import { v4 as uuidV4 } from "uuid"
 function DisplayPosts () {
     const navigate = useNavigate()
     const [content, setContent] = useState([''])
@@ -20,11 +21,11 @@ function DisplayPosts () {
                  </>
             } else {
                 return <> 
-                    <button onClick={click => {
+                    <button key={uuidV4()} onClick={click => {
                         click.preventDefault()
                         navigate(`/post/${post._id}`)
                     }} className="bg-gray-400 hover:bg-gray-200 w-10/12 h-2/6 mt-4 mx-20">
-                        <h2 className="font-sans text-4xl">{post.title}</h2>
+                        <h2 key={uuidV4()} className="font-sans text-4xl">{post.title}</h2>
                     </button>
                 </>
             }
