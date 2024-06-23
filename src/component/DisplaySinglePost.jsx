@@ -57,7 +57,10 @@ function DisplaySinglePost () {
                     if (response.error) {
                         console.log(response.error)
                     } else {
-
+                        const request = await fetch(Info + `/posts/${params.postId}`)
+                        const response = await request.json()
+                        setPost(response.post)
+                        setComments(response.comments)
                     }
                 } catch (err) {
                     console.log(err)
